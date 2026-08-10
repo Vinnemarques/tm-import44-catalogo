@@ -17,6 +17,8 @@
 <body>
 <div id="root"></div>
 <script type="text/babel" data-presets="react">
+const { useState, useEffect } = React;
+
 function Icon({ children, size = 18, color = 'currentColor', style }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={style}>
