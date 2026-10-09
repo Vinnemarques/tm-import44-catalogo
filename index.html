@@ -8,6 +8,15 @@
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script>
+  // Babel 8 defaults to the automatic JSX runtime (ESM `import` statements),
+  // which fails in non-module inline scripts. Force the classic runtime
+  // (React.createElement) to work with the UMD React loaded above.
+  var __reactPreset = Babel.availablePresets.react;
+  Babel.registerPreset('react', function (api, opts) {
+    return __reactPreset(api, Object.assign({}, opts, { runtime: 'classic' }));
+  });
+</script>
 <style>
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: #050706; }
